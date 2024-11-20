@@ -1,0 +1,6 @@
+@PalcoAPI_HostAddress = http://localhost:5083
+
+GET {{PalcoAPI_HostAddress}}/
+Accept: application/json
+
+###
