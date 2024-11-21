@@ -37,11 +37,19 @@ namespace PalcoAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Previo>> PostPrevio(Previo previo)
         {
+            // Configurar el modelo manualmente antes de guardar
+            foreach (var row in previo.PrevioRows)
+            {
+                row.IdGuiaHouseNavigation = null; // Asegúrate de que esté vacío
+            }
+
             _context.Previos.Add(previo);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetPrevio), new { guiaHouse = previo.GuiaHouse }, previo);
         }
+
+
         [HttpPost("Login")]
         public IActionResult Login([FromBody] UserLoginModel loginModel)
         {

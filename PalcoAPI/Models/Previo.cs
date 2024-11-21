@@ -20,4 +20,6 @@ public partial class Previo
     public DateTime? FechaReconocimientoPrevio { get; set; }
 
     public string? RecintoFiscal { get; set; }
+
+    public virtual ICollection<PrevioRow> PrevioRows { get; set; } = new List<PrevioRow>();
 }
