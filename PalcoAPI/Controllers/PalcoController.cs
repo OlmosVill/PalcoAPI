@@ -6,7 +6,7 @@ using static PalcoAPI.OthersModels.Models;
 
 namespace PalcoAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("Palco")]
     [ApiController]
     public class PalcoController : ControllerBase
     {
@@ -16,11 +16,15 @@ namespace PalcoAPI.Controllers
         {
             _context = context;
         }
-        // GET: api/Previo
+
         [HttpGet]
+        public IActionResult Get() => Ok("API is running");
+
+        // GET: api/Previo
+        [HttpGet("/GetPrevios")]
         public async Task<ActionResult<IEnumerable<Previo>>> GetPrevios()
         {
-            return await _context.Previos.ToListAsync();
+            return await _context.Previos.Include(x => x.PrevioRows).ToListAsync();
         }
 
         // GET: api/Previo/{id}

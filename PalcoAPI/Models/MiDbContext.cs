@@ -27,6 +27,7 @@ public partial class MiDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.Entity<Previo>(entity =>
         {
             entity.HasKey(e => e.GuiaHouse);
