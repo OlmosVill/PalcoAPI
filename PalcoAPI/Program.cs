@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using PalcoAPI.Models;
+using PalcoAPI.ErikasModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
